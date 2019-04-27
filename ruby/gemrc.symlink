@@ -1,0 +1,6 @@
+:benchmark: false
+:verbose: true
+install: --no-document
+update: --no-document
+:backtrace: false
+:update_sources: true
