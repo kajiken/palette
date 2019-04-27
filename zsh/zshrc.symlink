@@ -1,0 +1,12 @@
+# ====================
+#     .zshrc file
+# ====================
+
+source $ZSH/aliases.zsh
+source $ZSH/keybind.zsh
+source $ZSH/options.zsh
+source $ZSH/prompt.zsh
+source $ZSH/lib/git.zsh
+source $ZSH/lib/peco.zsh
+
+eval "$(rbenv init -)"
