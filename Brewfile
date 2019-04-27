@@ -1,0 +1,8 @@
+brew 'ghq'
+brew 'git'
+brew 'peco'
+brew 'readline'
+brew 'rbenv'
+brew 'ruby-build'
+brew 'zsh'
+brew 'zsh-completions'
