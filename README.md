@@ -1,1 +1,3 @@
 # Palette
+
+![Palette](palette.png)
