@@ -1,0 +1,197 @@
+" =================
+"        _
+" __   _(_)_ __ ___  _ __ ___
+" \ \ / / | '_ ` _ \| '__/ __|
+"  \ V /| | | | | | | | | (__
+" (_)_/ |_|_| |_| |_|_|  \___|
+"
+" =================
+
+" Bundle "{{{1
+"dein Scripts-----------------------------
+if &compatible
+  set nocompatible " Be iMproved
+endif
+
+call plug#begin()
+Plug 'vim-airline/vim-airline'
+Plug 'scrooloose/nerdcommenter'
+Plug 'kana/vim-smartchr'
+
+" Shougo's plugins
+if has('nvim')
+  Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+else
+  Plug 'Shougo/deoplete.nvim'
+  Plug 'roxma/nvim-yarp'
+  Plug 'roxma/vim-hug-neovim-rpc'
+endif
+Plug 'Shougo/neosnippet.vim'
+Plug 'Shougo/neosnippet-snippets'
+Plug 'Shougo/vimproc.vim', {'do' : 'make'}
+
+" textobj plugins
+Plug 'kana/vim-operator-user'
+Plug 'kana/vim-operator-replace'
+Plug 'rhysd/vim-operator-surround'
+
+Plug 'kana/vim-textobj-user'
+Plug 'kana/vim-textobj-indent'
+
+" filetype plugins
+Plug 'leafgarland/typescript-vim', { 'for': 'typescript' }
+call plug#end()
+
+" Required:
+filetype plugin indent on
+syntax enable
+
+"End dein Scripts-------------------------
+colorscheme desert
+
+" }}}
+" Options: "{{{1
+augroup MyAutoCmd
+  autocmd!
+augroup END
+" }}}
+" Config: "{{{1
+set t_Co=256
+set runtimepath+=~/.vim
+set laststatus=2
+" set showtabline=2
+set shellpipe=2>/dev/null>
+" for tab
+set tabstop=2
+set softtabstop=2
+set shiftwidth=2
+set smartindent
+set expandtab
+" for input
+set backspace=indent,eol,start
+set formatoptions+=mM
+set formatexpr=jpvim#formatexpr()
+set iminsert=0
+set imsearch=0
+" for commnad completion
+set wildmenu
+set wildmode=list:longest
+set completeopt=menuone,preview
+" for search
+set notagbsearch
+set incsearch
+set hlsearch
+set ignorecase
+set smartcase
+set nowrapscan
+set nowritebackup
+" for write file
+set hidden
+set noswapfile
+set updatecount=0
+set autoread
+" for display
+set number
+set cursorline
+set wrap
+set showmode
+set showcmd
+set shiftround
+set showmatch
+set matchtime=3
+set matchpairs+=<:>
+set visualbell
+set splitbelow
+set splitright
+set ambiwidth=double
+set foldmethod=marker
+if $ENV_WORKING ==# 'summer'
+  set encoding=japan
+else
+  set encoding=utf-8
+endif
+scriptencoding utf-8
+set termencoding=utf-8
+set fileencodings=ucs-bom,utf-8,euc-jp,cp932,iso-2022-jp
+set fileformats=unix,dos,mac
+set list
+set listchars=eol:¬
+set listchars+=tab:▸\
+" }}}
+" Key-mappings: "{{{1
+nnoremap <Space> <Nop>
+nnoremap <Space>q :<C-u>quit<CR>
+nnoremap <C-h> :<C-u>help <C-r><C-w><CR>
+noremap <Space>j <C-f>
+noremap <Space>k <C-b>
+nnoremap O :<C-u>call append(expand('.'), '')<Cr>j
+imap [ []<LEFT>
+imap ( ()<LEFT>
+vnoremap <silent> p p:call SelectPasteTextOverWriteRegister()<cr>
+noremap <expr> <Space>h
+      \ col('.') == 1 && foldlevel(line('.')) > 0 ? 'zc' : 'h'
+noremap <expr> <Space>l
+      \ foldclosed(line('.')) != -1 ? 'zo' : 'l'
+cnoremap <C-p> <Up>
+cnoremap <Up> <C-p>
+cnoremap <C-n> <Down>
+cnoremap <Down> <C-n>
+
+" vim-operator-surround
+nmap ys <Plug>(operator-surround-append)
+nmap ds <Plug>(operator-surround-delete)
+nmap cs <Plug>(operator-surround-replace)
+
+" Reference http://vim-users.jp/2009/10/hack81/
+inoremap <C-u> <C-g>u<C-u>
+inoremap <C-w> <C-g>u<C-w>
+
+" like emacs keybinds
+noremap! <C-f> <Right>
+noremap! <C-b> <Left>
+noremap! <C-a> <Home>
+noremap! <C-e> <End>
+noremap! <C-d> <Del>
+" }}}
+" Highlight: "{{{1
+highlight NonText cterm=bold ctermfg=242
+highlight SignColumn ctermbg=2
+
+highlight CursorLine cterm=none ctermbg=240
+highlight Pmenu ctermbg=1
+highlight Visual term=none cterm=none ctermbg=242 guifg=khaki guibg=olivedrab
+highlight PmenuSel ctermbg=4 ctermfg=15
+highlight SpecialKey ctermfg=240 ctermbg=none
+" }}}
+" Plugin: "{{{1
+" deoplete.nvim:{{{2
+let g:deoplete#enable_at_startup = 1
+" }}}
+" neosnippet.vim:{{{2
+imap <C-l>     <Plug>(neosnippet_expand_or_jump)
+smap <C-l>     <Plug>(neosnippet_expand_or_jump)
+xmap <C-l>     <Plug>(neosnippet_expand_target)
+
+" SuperTab like snippets behavior.
+" Note: It must be "imap" and "smap".  It uses <Plug> mappings.
+"imap <expr><TAB>
+" \ pumvisible() ? "\<C-n>" :
+" \ neosnippet#expandable_or_jumpable() ?
+" \    "\<Plug>(neosnippet_expand_or_jump)" : "\<TAB>"
+smap <expr><TAB> neosnippet#expandable_or_jumpable() ?
+\ "\<Plug>(neosnippet_expand_or_jump)" : "\<TAB>"
+
+" For conceal markers.
+if has('conceal')
+  set conceallevel=2 concealcursor=niv
+endif
+" }}}
+" }}}
+" Fin. "{{{1
+" :help 'secure'
+" You better set 'secure' at the end of your ~/.vimrc then.
+set secure
+
+" __END__  "{{{1
+" vim: expandtab softtabstop=2 shiftwidth=2
+" vim: foldmethod=marker
