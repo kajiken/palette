@@ -1,0 +1,2 @@
+FROM go
+ENTRYPOINT ["go"]
