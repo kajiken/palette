@@ -1,0 +1,35 @@
+[user]
+	name = kajiken
+	email = knskjwr@gmail.com
+[core]
+	excludesfile = ~/.gitignore
+	editor = vim
+	quotepath = false # display the file name of jp.
+[color]
+	diff = auto
+	status = auto
+	branch = auto
+	ui = true
+[merge]
+	tool = vimdiff
+	ff = false
+[tig "bind"]
+	generic = g move-first-line
+	generic = G move-last-line
+[credential]
+	helper = osxkeychain
+[filter "lfs"]
+	required = true
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f
+	process = git-lfs filter-process
+[ghq]
+	root = ~/src
+[pull]
+	rebase = true
+[alias]
+	mn = merge --no-ff
+[diff]
+	compactionHeuristic = true
+[help]
+	autocorrect = 1
