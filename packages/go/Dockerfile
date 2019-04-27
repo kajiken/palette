@@ -1,2 +1,2 @@
-FROM go
+FROM golang:1.12.4-alpine3.9
 ENTRYPOINT ["go"]
