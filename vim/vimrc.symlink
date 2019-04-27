@@ -8,7 +8,6 @@
 " =================
 
 " Bundle "{{{1
-"dein Scripts-----------------------------
 if &compatible
   set nocompatible " Be iMproved
 endif
@@ -46,7 +45,6 @@ call plug#end()
 filetype plugin indent on
 syntax enable
 
-"End dein Scripts-------------------------
 colorscheme desert
 
 " }}}
