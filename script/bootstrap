@@ -1,0 +1,69 @@
+#!/bin/sh
+#
+# Homebrew
+
+GHQ_ROOT=$HOME/src/github.com
+GITHUB_USERNAME=kaiken
+DOTFILES_REPOS_NAME=palette
+DOTFILES_ROOT=$GHQ_ROOT/$GITHUB_USERNAME/$DOTFILES_REPOS_NAME
+
+info () {
+  printf "\r  \033[00;34m>>>\033[0m $1\n"
+}
+
+success () {
+  printf "\r\033[2K  [ \033[00;32mOK\033[0m ] $1\n"
+}
+
+link_file () {
+  local src=$1 dist=$2
+  echo $src
+  echo $dst
+  ln -s "$src" "$dist"
+  success "linked $src to $dist"
+}
+
+install_dotfiles () {
+  for src in $(find -H "$DOTFILES_ROOT" -maxdepth 2 -name '*.symlink')
+  do
+    dist="$HOME/.$(basename "${src%.*}")"
+    link_file "$src" "$dist"
+  done
+}
+
+info "Start installing..."
+echo ''
+
+mkdir -p $GHQ_ROOT/$GITHUB_USERNAME
+cd $DOTFILES_REPOS_ROOT
+info "› git clone"
+git clone https://github.com/$GITHUB_USERNAME/$DOTFILES_REPOS_NAME.git
+
+info "› Install dotfiles"
+install_dotfiles
+
+# Check for Homebrew
+if test ! $(which brew)
+then
+  echo "  Installing Homebrew."
+  ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+fi
+
+info "› brew bundle"
+brew bundle
+
+# Check for Whalebrew
+if test ! $(which whalebrew)
+then
+  echo "  Installing Whalebrew."
+  curl -L "https://github.com/whalebrew/whalebrew/releases/download/0.1.0/whalebrew-$(uname -s)-$(uname -m)" -o /usr/local/bin/whalebrew
+  chmod +x /usr/local/bin/whalebrew
+fi
+
+echo "› ./script/install"
+./script/install
+
+echo ''
+echo '  All installed!'
+
+exit 0
