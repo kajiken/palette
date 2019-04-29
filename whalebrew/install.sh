@@ -2,14 +2,14 @@
 
 declare -a packages=(
 whalebrew/jq
-whalebrew/node
-whalebrew/npm
 whalebrew/the_silver_searcher
 whalebrew/curl
 hashicorp/terraform
 hashicorp/packer
-kajiken/go
-kajiken/tree
+enogulabs/go
+enogulabs/tree
+enogulabs/node
+enogulabs/npm
 )
 
 info () {
