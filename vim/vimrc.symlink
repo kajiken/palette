@@ -14,7 +14,7 @@ endif
 
 call plug#begin()
 Plug 'vim-airline/vim-airline'
-Plug 'scrooloose/nerdcommenter'
+Plug 'tomtom/tcomment_vim'
 Plug 'kana/vim-smartchr'
 
 " Shougo's plugins
@@ -183,6 +183,9 @@ smap <expr><TAB> neosnippet#expandable_or_jumpable() ?
 if has('conceal')
   set conceallevel=2 concealcursor=niv
 endif
+" }}}
+" tcomment:{{{2
+let g:tcomment_mapleader1 = '<Leader>c'
 " }}}
 " }}}
 " Fin. "{{{1
