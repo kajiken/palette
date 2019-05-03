@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 
 GHQ_ROOT=$HOME/src
 GITHUB_HOST=github.com
@@ -22,6 +22,7 @@ link_file () {
 }
 
 install_dotfiles () {
+  local DOTFILES_ROOT=$GHQ_ROOT/$GITHUB_HOST/$GITHUB_USERNAME/$GITHUB_REPOSITORY
   for src in $(find -H "$DOTFILES_ROOT" -maxdepth 2 -name '*.symlink')
   do
     dist="$HOME/.$(basename "${src%.*}")"
