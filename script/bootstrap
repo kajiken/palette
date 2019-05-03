@@ -2,7 +2,7 @@
 
 GHQ_ROOT=$HOME/src
 GITHUB_HOST=github.com
-GITHUB_USERNAME=kaiken
+GITHUB_USERNAME=kajiken
 GITHUB_REPOSITORY=palette
 
 info () {
