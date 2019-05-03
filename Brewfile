@@ -14,6 +14,7 @@ brew "zsh"
 
 # Applications
 
+cask "1password"
 cask "alfred"
 cask "docker"
 cask "github"
