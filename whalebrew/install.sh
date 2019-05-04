@@ -24,6 +24,13 @@ then
   chmod +x /usr/local/bin/whalebrew
 fi
 
+if test ! $(docker version --format '{{.Server.Version}}')
+then
+  exit 0
+fi
+
+echo 'start package install'
+
 for package in ${packages[@]}
 do
   info "Installing ${package}"
