@@ -4,12 +4,12 @@ declare -a packages=(
 whalebrew/jq
 whalebrew/the_silver_searcher
 whalebrew/curl
-hashicorp/terraform
 hashicorp/packer
-enogulabs/go
 enogulabs/tree
 enogulabs/node
 enogulabs/npm
+enogulabs/tsc
+enogulabs/roadworker
 )
 
 info () {

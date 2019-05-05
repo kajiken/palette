@@ -39,6 +39,7 @@ Plug 'kana/vim-textobj-indent'
 
 " filetype plugins
 Plug 'leafgarland/typescript-vim', { 'for': 'typescript' }
+Plug 'hashivim/vim-terraform', { 'for': 'tf' }
 call plug#end()
 
 " Required:
