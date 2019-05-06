@@ -2,10 +2,8 @@
 
 declare -a packages=(
 whalebrew/jq
-whalebrew/the_silver_searcher
 whalebrew/curl
 hashicorp/packer
-enogulabs/tree
 enogulabs/node
 enogulabs/npm
 enogulabs/tsc
