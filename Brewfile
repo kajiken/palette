@@ -39,7 +39,7 @@ cask "notion"
 cask "sequel-pro"
 cask "slack-beta"
 cask "station"
-cask "visual-studio-code-insiders"
+cask "visual-studio-code"
 
 # Fonts
 

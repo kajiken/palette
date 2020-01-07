@@ -19,5 +19,5 @@ alias rinit='bundle install --path .bundle/gems && rake db:create'
 alias c='bundle exec rails c'
 alias s='bundle exec rails s'
 
-alias docker-gc='docker run --rm --privileged -v /var/run/docker.sock:/var/run/docker.sock -v /etc:/etc:ro spotify/docker-gc'
+alias docker-gc='docker system prune'
 alias docker-gc-with-volume='docker run --rm -v /var/run/docker.sock:/var/run/docker.sock -v /etc:/etc -e REMOVE_VOLUMES=1 spotify/docker-gc'
