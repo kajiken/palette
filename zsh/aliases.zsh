@@ -16,7 +16,7 @@ alias gs='git status --short --branch'
 alias b='bundle'
 alias binit='bundle install --path .bundle/gems'
 alias rinit='bundle install --path .bundle/gems && rake db:create'
-alias c='bundle exec rails c'
+alias c='code'
 alias s='bundle exec rails s'
 
 alias docker-gc='docker system prune'
