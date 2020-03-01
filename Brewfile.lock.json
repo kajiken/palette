@@ -454,6 +454,15 @@
             "appdir": "/Applications"
           }
         }
+      },
+      "hammerspoon": {
+        "version": "0.9.78",
+        "options": {
+          "full_name": "hammerspoon",
+          "args": {
+            "appdir": "/Applications"
+          }
+        }
       }
     }
   },
