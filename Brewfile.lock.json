@@ -365,15 +365,6 @@
           }
         }
       },
-      "hammerspoon": {
-        "version": "0.9.73",
-        "options": {
-          "full_name": "hammerspoon",
-          "args": {
-            "appdir": "/Applications"
-          }
-        }
-      },
       "iterm2-beta": {
         "version": "3.3.0beta5",
         "options": {
