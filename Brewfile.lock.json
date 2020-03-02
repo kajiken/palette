@@ -463,6 +463,15 @@
             "appdir": "/Applications"
           }
         }
+      },
+      "the-unarchiver": {
+        "version": "4.1.0,121:1549634528",
+        "options": {
+          "full_name": "the-unarchiver",
+          "args": {
+            "appdir": "/Applications"
+          }
+        }
       }
     }
   },
