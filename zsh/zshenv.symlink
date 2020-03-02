@@ -26,10 +26,10 @@ export PATH=$GOPATH/bin:$PATH
 export GIT_MERGE_AUTOEDIT=no
 
 # history setting
-HISTFILE=~/.zsh_history
-HISTSIZE=100000
-SAVEHIST=100000
+export HISTFILE=~/.zsh_history
+export HISTSIZE=100000
+export SAVEHIST=100000
 
-REPORTTIME=3
+export REPORTTIME=3
 
 autoload -U compinit && compinit
