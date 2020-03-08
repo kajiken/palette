@@ -40,6 +40,7 @@ cask "slack-beta"
 cask "station"
 cask "the-unarchiver"
 cask "visual-studio-code"
+cask "zoomus"
 
 # Fonts
 
