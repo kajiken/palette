@@ -21,7 +21,7 @@ export HGENCODING=utf-8
 export EDITOR=vim
 export LSCOLORS=gxfxcxdxbxegedabagacad
 
-export PATH=$GOPATH/bin:$PATH
+export PATH=$GOPATH/bin:$PATH:`$GHQPATH root`/`$GHQPATH list flutter`/bin
 
 export GIT_MERGE_AUTOEDIT=no
 
