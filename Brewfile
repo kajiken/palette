@@ -12,10 +12,12 @@ brew "readline"
 brew "ripgrep"
 brew "rbenv"
 brew "ruby-build"
+brew "rust"
 brew "terraform"
 brew "tree"
 brew "vim"
 brew "zsh"
+brew "zsh-completions"
 
 # Applications
 
@@ -38,7 +40,6 @@ cask "hammerspoon"
 cask "insomnia"
 cask "iterm2-beta"
 cask "jasper"
-cask "java"
 cask "karabiner-elements"
 cask "kindle"
 cask "notion"
@@ -46,8 +47,8 @@ cask "sequel-pro"
 cask "slack-beta"
 cask "the-unarchiver"
 cask "visual-studio-code"
-cask "zoomus"
+cask "zoom"
 
 # Fonts
 
-cask "font-source-han-code-jp"
+cask "font-jetbrains-mono"
