@@ -151,10 +151,6 @@ highlight Visual term=none cterm=none ctermbg=242 guifg=khaki guibg=olivedrab
 highlight PmenuSel ctermbg=4 ctermfg=15
 highlight SpecialKey ctermfg=240 ctermbg=none
 " }}}
-" Plugin: "{{{1
-" deoplete.nvim:{{{2
-let g:deoplete#enable_at_startup = 1
-" }}}
 " neosnippet.vim:{{{2
 imap <C-l>     <Plug>(neosnippet_expand_or_jump)
 smap <C-l>     <Plug>(neosnippet_expand_or_jump)
