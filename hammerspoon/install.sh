@@ -4,4 +4,4 @@ if [ ! -e $HOME/.hammerspoon ]; then
   mkdir $HOME/.hammerspoon
 fi
 
-ln -nfs $PWD/hammerspoon/init.lua $HOME/.hammerspoon/init.lua
+ln -s $PWD/hammerspoon/init.lua $HOME/.hammerspoon/init.lua
