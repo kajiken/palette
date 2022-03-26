@@ -10,14 +10,3 @@ source $ZSH/lib/git.zsh
 source $ZSH/lib/peco.zsh
 source $ZSH/lib/rbenv.zsh
 source $ZSH/lib/nvm.zsh
-
-if test -d $HOME/.zplug; then
-  export ZPLUG_LOADFILE=$ZSH/zplug.zsh
-  source $HOME/.zplug/init.zsh
-
-  if ! zplug check; then
-    zplug install
-  fi
-
-  zplug load
-fi

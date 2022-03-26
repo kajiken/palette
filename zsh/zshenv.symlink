@@ -1,27 +1,20 @@
 export GOPATH=$HOME
 export DOTFILES_REPOS='kajiken/palette'
+export GHQPATH=$(brew --prefix)/bin/ghq
+export PATH=$GOPATH/bin:$PATH
 
-case ${OSTYPE} in
-  darwin*)
-    export GHQPATH=/usr/local/bin/ghq
-    fpath=(/usr/local/share/zsh-completions $fpath)
-    ;;
-  linux*)
-    export GHQPATH=$GOPATH/bin/ghq
-    eval $(/home/linuxbrew/.linuxbrew/bin/brew shellenv)
-    fpath=(/home/linuxbrew/.linuxbrew/share/zsh-completions $fpath)
-    ;;
-esac
+if type brew &>/dev/null; then
+  FPATH=$(brew --prefix)/share/zsh-completions:$FPATH
+
+  source $(brew --prefix)/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+fi
 
 export ZSH=`$GHQPATH root`/`$GHQPATH list $DOTFILES_REPOS`/zsh
 export XDG_CONFIG_HOME=`$GHQPATH root`/`$GHQPATH list $DOTFILES_REPOS`
-
 export LANG=en_US.UTF-8
 export HGENCODING=utf-8
 export EDITOR=vim
 export LSCOLORS=gxfxcxdxbxegedabagacad
-
-export PATH=$GOPATH/bin:$PATH:`$GHQPATH root`/`$GHQPATH list flutter`/bin
 
 export GIT_MERGE_AUTOEDIT=no
 
@@ -32,4 +25,5 @@ export SAVEHIST=100000
 
 export REPORTTIME=3
 
-autoload -U compinit && compinit
+autoload -Uz compinit
+compinit

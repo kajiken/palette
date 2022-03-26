@@ -21,6 +21,7 @@ brew "tree"
 brew "vim"
 brew "zsh"
 brew "zsh-completions"
+brew "zsh-syntax-highlighting"
 
 # Applications
 
