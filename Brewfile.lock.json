@@ -2,7 +2,7 @@
   "entries": {
     "tap": {
       "homebrew/cask": {
-        "revision": "0037f2409a6a16dee051d25ae19b2f7ece80b856"
+        "revision": "60208d8c201ca842a3b52ed83c3e52c7c5dbfc83"
       },
       "homebrew/cask-versions": {
         "revision": "317864c9ee4cbf886865a0d106fc826c467d8805"
@@ -705,24 +705,6 @@
       }
     },
     "cask": {
-      "1password": {
-        "version": "7.9.3",
-        "options": {
-          "full_name": "1password",
-          "args": {
-            "appdir": "/Applications"
-          }
-        }
-      },
-      "1password-cli": {
-        "version": "2.0.0",
-        "options": {
-          "full_name": "1password-cli",
-          "args": {
-            "appdir": "/Applications"
-          }
-        }
-      },
       "alfred": {
         "version": "4.6.4,1294",
         "options": {
@@ -867,17 +849,8 @@
           }
         }
       },
-      "kindle": {
-        "version": "1.34.63102",
-        "options": {
-          "full_name": "kindle",
-          "args": {
-            "appdir": "/Applications"
-          }
-        }
-      },
       "notion": {
-        "version": "2.0.21",
+        "version": "2.0.20",
         "options": {
           "full_name": "notion",
           "args": {
@@ -945,10 +918,10 @@
     "macos": {
       "monterey": {
         "HOMEBREW_VERSION": "3.4.3",
-        "HOMEBREW_PREFIX": "/usr/local",
-        "Homebrew/homebrew-core": "be8fcb204e2068185ffe09ecf651a071ea958284",
-        "CLT": "12.0.0.32.28",
-        "Xcode": "12.4",
+        "HOMEBREW_PREFIX": "/opt/homebrew",
+        "Homebrew/homebrew-core": "7efc80a83a68d60fe0d6bfaa4195eb4d201726b9",
+        "CLT": "13.3.0.0.1.1645755326",
+        "Xcode": "13.3",
         "macOS": "12.3"
       }
     }

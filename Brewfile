@@ -25,8 +25,6 @@ brew "zsh-syntax-highlighting"
 
 # Applications
 
-cask "1password"
-cask "1password-cli"
 cask "alfred"
 cask "android-studio"
 cask "appcleaner"
@@ -43,7 +41,6 @@ cask "hammerspoon"
 cask "insomnia"
 cask "iterm2-beta"
 cask "karabiner-elements"
-cask "kindle"
 cask "notion"
 cask "obsidian"
 cask "slack"
