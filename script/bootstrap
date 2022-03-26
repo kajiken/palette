@@ -33,8 +33,6 @@ install_dotfiles () {
 info "Start installing..."
 echo ''
 
-sudo xcodebuild -license
-
 mkdir -p $GHQ_ROOT/$GITHUB_HOST/$GITHUB_USERNAME
 cd $GHQ_ROOT/$GITHUB_HOST/$GITHUB_USERNAME
 info "› git clone"
