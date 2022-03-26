@@ -44,7 +44,6 @@ cask "karabiner-elements"
 cask "notion"
 cask "obsidian"
 cask "slack"
-cask "the-unarchiver"
 cask "visual-studio-code"
 cask "zoom"
 
