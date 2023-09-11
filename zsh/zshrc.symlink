@@ -6,6 +6,7 @@ if type brew &>/dev/null; then
   FPATH=$(brew --prefix)/share/zsh-completions:$FPATH
 
   source $(brew --prefix)/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+  source $(brew --prefix)/share/zsh-autosuggestions/zsh-autosuggestions.zsh
 
   export GHQPATH=$(brew --prefix)/bin/ghq
 fi
@@ -17,10 +18,10 @@ export XDG_CONFIG_HOME=`$GHQPATH root`/`$GHQPATH list $DOTFILES_REPOS`
 source $ZSH/aliases.zsh
 source $ZSH/keybind.zsh
 source $ZSH/options.zsh
-source $ZSH/prompt.zsh
-source $ZSH/lib/git.zsh
 source $ZSH/lib/peco.zsh
 source $ZSH/lib/rbenv.zsh
 
 autoload -Uz compinit
 compinit
+
+eval "$(starship init zsh)"
