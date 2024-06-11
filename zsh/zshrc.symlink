@@ -20,6 +20,7 @@ source $ZSH/keybind.zsh
 source $ZSH/options.zsh
 source $ZSH/lib/peco.zsh
 source $ZSH/lib/rbenv.zsh
+source $ZSH/lib/nvm.zsh
 
 autoload -Uz compinit
 compinit
