@@ -39,12 +39,13 @@ cask "google-cloud-sdk"
 cask "google-japanese-ime"
 cask "hammerspoon"
 cask "insomnia"
-cask "iterm2-beta"
+cask "iterm2"
 cask "karabiner-elements"
 cask "notion"
 cask "obsidian"
 cask "slack"
 cask "visual-studio-code"
+cask "zoom"
 
 # Fonts
 

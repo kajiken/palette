@@ -35,6 +35,8 @@ local function handleGlobalAppEvent(name, event, app)
    if event == hs.application.watcher.activated then
       if name == "iTerm2" then
          disableAllHotkeys()
+      elseif name == "Ghostty" then
+         disableAllHotkeys()
       else
          enableAllHotkeys()
       end
