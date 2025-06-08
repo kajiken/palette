@@ -536,7 +536,7 @@ _devtree_remove() {
     if [[ -n "$branch_name" ]] && [[ "$force" != true ]]; then
         # Check if branch exists in other worktrees or remotes
         local branch_refs
-        branch_refs=$(git for-each-ref --format='%(refname)' refs/heads/"$branch_name" refs/remotes/*/"$branch_name" 2>/dev/null | wc -l)
+        branch_refs=$(git for-each-ref --format='%(refname)' --glob="refs/heads/$branch_name" --glob="refs/remotes/*/$branch_name" 2>/dev/null | wc -l)
         
         if [[ "$branch_refs" -eq 1 ]]; then
             read "response?Delete the branch '$branch_name' as well? [y/N]: "
