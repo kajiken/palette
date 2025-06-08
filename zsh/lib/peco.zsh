@@ -31,18 +31,18 @@ function peco-ssh() {
 zle -N peco-ssh
 bindkey 'SS' peco-ssh
 
-function peco-file() {
-  local selected_file=$(rg -l . | peco)
-  local file=$(echo ${selected_file} | head -n 1)
-  if [ -n "${selected_file}" ]; then
-    BUFFER="${EDITOR} ${selected_file}"
-    zle accept-line
-  fi
-  zle clear-screen
-}
-
-zle -N peco-file
-bindkey '^s' peco-file
+# function peco-file() {
+#   local selected_file=$(rg -l . | peco)
+#   local file=$(echo ${selected_file} | head -n 1)
+#   if [ -n "${selected_file}" ]; then
+#     BUFFER="${EDITOR} ${selected_file}"
+#     zle accept-line
+#   fi
+#   zle clear-screen
+# }
+#
+# zle -N peco-file
+# bindkey '^s' peco-file
 
 function peco-devtree() {
   # Load devtree configuration to ensure DEVTREE_DEFAULT_PATH is set
@@ -85,3 +85,4 @@ function peco-devtree() {
 
 # The peco-devtree widget is intended to be invoked via the `dtcd` alias and does not require a key binding.
 zle -N peco-devtree
+bindkey '^s' peco-devtree
