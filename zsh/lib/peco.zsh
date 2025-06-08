@@ -43,3 +43,45 @@ function peco-file() {
 
 zle -N peco-file
 bindkey '^s' peco-file
+
+function peco-devtree() {
+  # Load devtree configuration to ensure DEVTREE_DEFAULT_PATH is set
+  if [[ -f "$HOME/.devtreerc" ]]; then
+    source "$HOME/.devtreerc"
+  fi
+
+  local devtree_path="${DEVTREE_DEFAULT_PATH:-$HOME/.devtree/worktrees}"
+
+  # Expand tilde and resolve relative paths
+  devtree_path="${devtree_path/#\~/$HOME}"
+  local resolved_devtree_path="$(cd "${devtree_path}" 2>/dev/null && pwd)"
+
+  if [ ! -d "${resolved_devtree_path}" ]; then
+    echo "Error: DEVTREE_DEFAULT_PATH directory does not exist: ${devtree_path}"
+    if [[ -n "$ZLE_STATE" ]]; then
+      zle clear-screen
+    fi
+    return 1
+  fi
+
+  local dirs=()
+  while IFS= read -r dir; do
+    dirs+=("${dir#${resolved_devtree_path}/}")
+  done < <(find "${resolved_devtree_path}" -maxdepth 1 -type d -not -path "${resolved_devtree_path}" | sort)
+  local selected_dir=$(printf '%s\n' "${dirs[@]}" | peco --query "$LBUFFER")
+
+  if [ -n "${selected_dir}" ]; then
+    if [[ -n "$ZLE_STATE" ]]; then
+      BUFFER="cd ${resolved_devtree_path}/${selected_dir}"
+      zle accept-line
+    else
+      cd "${resolved_devtree_path}/${selected_dir}"
+    fi
+  fi
+  if [[ -n "$ZLE_STATE" ]]; then
+    zle clear-screen
+  fi
+}
+
+# The peco-devtree widget is intended to be invoked via the `dtcd` alias and does not require a key binding.
+zle -N peco-devtree
