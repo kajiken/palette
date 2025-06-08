@@ -72,26 +72,31 @@ function peco-devtree() {
 
   if [ -n "${selected_dir}" ]; then
     local target_dir="${resolved_devtree_path}/${selected_dir}"
+    local ai_tool="${AI_TOOL:-claude}"
+    
+    # Helper function to check if devcontainer exists
+    local has_devcontainer=false
+    if [ -d "${target_dir}/.devcontainer" ]; then
+      has_devcontainer=true
+    fi
     
     if [[ -n "$ZLE_STATE" ]]; then
-      BUFFER="cd ${target_dir} && "
+      BUFFER="cd \"${target_dir}\" && "
       
-      # Check if devcontainer exists
-      if [ -d "${target_dir}/.devcontainer" ]; then
-        BUFFER="${BUFFER}devcontainer exec --workspace-folder ${target_dir} claude"
+      if [ "$has_devcontainer" = true ]; then
+        BUFFER="${BUFFER}devcontainer exec --workspace-folder \"${target_dir}\" ${ai_tool}"
       else
-        BUFFER="${BUFFER}claude"
+        BUFFER="${BUFFER}${ai_tool}"
       fi
       
       zle accept-line
     else
       cd "${target_dir}"
       
-      # Check if devcontainer exists and execute appropriate command
-      if [ -d "${target_dir}/.devcontainer" ]; then
-        devcontainer exec --workspace-folder "${target_dir}" claude
+      if [ "$has_devcontainer" = true ]; then
+        devcontainer exec --workspace-folder "${target_dir}" "${ai_tool}"
       else
-        claude
+        "${ai_tool}"
       fi
     fi
   fi
