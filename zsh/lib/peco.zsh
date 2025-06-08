@@ -71,11 +71,33 @@ function peco-devtree() {
   local selected_dir=$(printf '%s\n' "${dirs[@]}" | peco --query "$LBUFFER")
 
   if [ -n "${selected_dir}" ]; then
+    local target_dir="${resolved_devtree_path}/${selected_dir}"
+    local ai_tool="${AI_TOOL:-claude}"
+    
+    # Helper function to check if devcontainer exists
+    local has_devcontainer=false
+    if [ -d "${target_dir}/.devcontainer" ]; then
+      has_devcontainer=true
+    fi
+    
     if [[ -n "$ZLE_STATE" ]]; then
-      BUFFER="cd ${resolved_devtree_path}/${selected_dir}"
+      BUFFER="cd \"${target_dir}\" && "
+      
+      if [ "$has_devcontainer" = true ]; then
+        BUFFER="${BUFFER}devcontainer exec --workspace-folder \"${target_dir}\" ${ai_tool}"
+      else
+        BUFFER="${BUFFER}${ai_tool}"
+      fi
+      
       zle accept-line
     else
-      cd "${resolved_devtree_path}/${selected_dir}"
+      cd "${target_dir}"
+      
+      if [ "$has_devcontainer" = true ]; then
+        devcontainer exec --workspace-folder "${target_dir}" "${ai_tool}"
+      else
+        "${ai_tool}"
+      fi
     fi
   fi
   if [[ -n "$ZLE_STATE" ]]; then
