@@ -20,10 +20,16 @@ Files ending with `.symlink` are automatically linked to `~/.{filename}` by the 
 - `zsh/zshrc.symlink` → `~/.zshrc`
 - `tmux/tmux.conf.symlink` → `~/.tmux.conf`
 - `vim/vimrc.symlink` → `~/.vimrc`
+- `ruby/gemrc.symlink` → `~/.gemrc`
 
 ### Directory Structure
 - **script/**: Contains bootstrap and install scripts
 - **config/**: Shared configuration files (starship.toml)
+- **alfread/**: Alfred appearance themes
+- **crossnote/**: CrossNote markdown editor configuration
+- **gh/**: GitHub CLI configuration
+- **peco/**: Interactive filtering tool configuration
+- **ruby/**: Ruby configuration with gemrc
 - **{tool}/**: Tool-specific directories with configs and install.sh scripts
 - **Brewfile**: Homebrew package definitions
 
@@ -45,9 +51,11 @@ Uses Starship prompt with custom configuration in `config/starship.toml`.
 ## Development Tools
 
 The Brewfile installs development tools including:
-- Languages: go, kotlin, rust, ruby (via rbenv)
-- Tools: git, ghq, peco, mise, terraform
-- Applications: Docker, VS Code, iTerm2, Hammerspoon
+- **Languages**: go, kotlin, rust, ruby (via rbenv)
+- **CLI Tools**: git, ghq, peco, mise, terraform, awscli, act, protobuf, starship, tree, vim, zsh
+- **Shell Enhancements**: zsh-autosuggestions, zsh-completions, zsh-syntax-highlighting
+- **Applications**: Alfred, Android Studio, AppCleaner, Dash, DeepL, Docker, Figma, Flutter, GitHub Desktop, Google Chrome, Google Cloud SDK, Google Japanese IME, Hammerspoon, Insomnia, iTerm2, Karabiner Elements, Notion, Obsidian, Slack, Visual Studio Code, Zoom
+- **Fonts**: JetBrains Mono
 
 ## Configuration Management
 
