@@ -8,3 +8,10 @@ alias gs='git status --short --branch'
 alias c='code'
 
 alias docker-gc='docker system prune'
+
+# devtree shortcuts
+alias dt='devtree'
+alias dtc='devtree create'
+alias dtl='devtree list'
+alias dtu='devtree up'
+alias dtr='devtree remove'
