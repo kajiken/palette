@@ -5,6 +5,7 @@ sync:
 	mkdir -p ~/.claude
 	mkdir -p ~/.hammerspoon
 
+	[ -d ~/.claude/commands/ ] || ln -s $(PWD)/claude/commands ~/.claude/commands
 	[ -f ~/.config/starship.toml ] || ln -s $(PWD)/starship.toml ~/.config/starship.toml
 	[ -f ~/.config/ghostty/config ] || ln -s $(PWD)/ghostty/config ~/.config/ghostty/config
 	[ -f ~/.gitconfig ] || ln -s $(PWD)/.gitconfig ~/.gitconfig
@@ -25,6 +26,7 @@ clean:
 	rm -f ~/.zprofile
 	rm -f ~/.zshenv
 	rm -f ~/.zshrc
+	rm -rf ~/.claude/commands/
 
 vim-plugin:
 	[ -f ~/.vim/autoload/plug.vim ] || curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
