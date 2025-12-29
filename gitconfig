@@ -33,3 +33,9 @@
 	compactionHeuristic = true
 [help]
 	autocorrect = 1
+[gtr "editor"]
+	default = vscode
+[gtr "ai"]
+	default = claude
+[gtr "worktrees"]
+	dir = .worktrees
