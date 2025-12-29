@@ -34,4 +34,4 @@ vim-plugin:
 
 vim: vim-plugin
 
-.PHONY: all sync clean
+.PHONY: all clean sync
