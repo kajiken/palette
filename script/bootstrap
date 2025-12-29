@@ -1,62 +1,40 @@
 #!/bin/bash
+set -euo pipefail
 
-GHQ_ROOT=$HOME/src
-GITHUB_HOST=github.com
-GITHUB_USERNAME=kajiken
-GITHUB_REPOSITORY=palette
+GHQ_ROOT="$HOME/src"
+GITHUB_HOST="github.com"
+GITHUB_USERNAME="kajiken"
+GITHUB_REPOSITORY="palette"
 
 info () {
-  printf "\r  \033[00;34m>>>\033[0m $1\n"
+  printf "\r  \033[00;34m>>>\033[0m %s\n" "$1"
 }
 
 success () {
-  printf "\r\033[2K  [ \033[00;32mOK\033[0m ] $1\n"
-}
-
-link_file () {
-  local src=$1 dist=$2
-  echo $src
-  echo $dst
-  ln -s "$src" "$dist"
-  success "linked $src to $dist"
-}
-
-install_dotfiles () {
-  local DOTFILES_ROOT=$GHQ_ROOT/$GITHUB_HOST/$GITHUB_USERNAME/$GITHUB_REPOSITORY
-  for src in $(find -H "$DOTFILES_ROOT" -maxdepth 2 -name '*.symlink')
-  do
-    dist="$HOME/.$(basename "${src%.*}")"
-    link_file "$src" "$dist"
-  done
+  printf "\r\033[2K  [ \033[00;32mOK\033[0m ] %s\n" "$1"
 }
 
 info "Start installing..."
 echo ''
 
-mkdir -p $GHQ_ROOT/$GITHUB_HOST/$GITHUB_USERNAME
-cd $GHQ_ROOT/$GITHUB_HOST/$GITHUB_USERNAME
+mkdir -p "$GHQ_ROOT/$GITHUB_HOST/$GITHUB_USERNAME"
+cd "$GHQ_ROOT/$GITHUB_HOST/$GITHUB_USERNAME"
+
 info "› git clone"
-git clone https://github.com/$GITHUB_USERNAME/$GITHUB_REPOSITORY.git
+if [ ! -d "$GITHUB_REPOSITORY" ]; then
+  git clone "https://github.com/$GITHUB_USERNAME/$GITHUB_REPOSITORY.git"
+fi
 
-cd $GHQ_ROOT/$GITHUB_HOST/$GITHUB_USERNAME/$GITHUB_REPOSITORY
-
-info "› Install dotfiles"
-install_dotfiles
+cd "$GHQ_ROOT/$GITHUB_HOST/$GITHUB_USERNAME/$GITHUB_REPOSITORY"
 
 # Check for Homebrew
-if test ! $(which brew)
-then
-  echo "  Installing Homebrew."
+if ! command -v brew >/dev/null 2>&1; then
+  info "Installing Homebrew..."
   /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 fi
 
 info "› brew bundle"
 brew bundle
 
-echo "› ./script/install"
-./script/install
-
 echo ''
-echo '  All installed!'
-
-exit 0
+success "All installed!"
