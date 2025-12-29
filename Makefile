@@ -8,7 +8,7 @@ sync:
 	[ -d ~/.claude/commands/ ] || ln -s $(PWD)/claude/commands ~/.claude/commands
 	[ -f ~/.config/starship.toml ] || ln -s $(PWD)/starship.toml ~/.config/starship.toml
 	[ -f ~/.config/ghostty/config ] || ln -s $(PWD)/ghostty/config ~/.config/ghostty/config
-	[ -f ~/.gitconfig ] || ln -s $(PWD)/.gitconfig ~/.gitconfig
+	[ -f ~/.gitconfig ] || ln -s $(PWD)/gitconfig ~/.gitconfig
 	[ -f ~/.hammerspoon/init.lua ] || ln -s $(PWD)/hammerspoon/init.lua ~/.hammerspoon/init.lua
 	[ -f ~/.vimrc ] || ln -s $(PWD)/vimrc ~/.vimrc
 	[ -f ~/.tmux.conf ] || ln -s $(PWD)/tmux/tmux.conf ~/.tmux.conf
