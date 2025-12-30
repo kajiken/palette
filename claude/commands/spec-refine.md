@@ -1,7 +1,7 @@
 ---
 description: Refine a spec file through interview and Codex review loops (user)
 argument-hint: [spec-file-path]
-allowed-tools: AskUserQuestion, Read, Write, Edit, Task
+allowed-tools: AskUserQuestion, Read, Write, Edit, Task, Bash(mkdir:*)
 ---
 
 ## Task
@@ -155,8 +155,9 @@ Use AskUserQuestion:
 
 ### Step 3: Completion
 When user approves:
-- Confirm the spec file has been updated with all refinements
-- Report the final status in the session (no file output)
+1. Ensure `./ai-docs/` directory exists: `mkdir -p ./ai-docs`
+2. Write the final spec to `./ai-docs/spec.md`
+3. Report completion with the output file path: `./ai-docs/spec.md`
 
 ---
 

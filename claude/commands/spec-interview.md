@@ -1,12 +1,14 @@
 ---
 description: Interview me about a spec file to refine requirements
 argument-hint: [spec-file-path]
-allowed-tools: AskUserQuestion, Read, Write, Edit
+allowed-tools: AskUserQuestion, Read, Write, Edit, Bash(mkdir:*)
 ---
 
 ## Task
 
-Read the spec file at $ARGUMENTS and conduct an in-depth interview to refine the requirements.
+Read the spec file at `$ARGUMENTS` and conduct an in-depth interview to refine the requirements.
+
+Note: `$ARGUMENTS` can be either a file path or raw text. If it's a file path, read the file. If it's text, treat it as the initial requirements.
 
 ## Interview Guidelines
 
@@ -32,4 +34,6 @@ Read the spec file at $ARGUMENTS and conduct an in-depth interview to refine the
 
 Continue interviewing until all major areas are covered, then:
 1. Summarize what was clarified
-2. Update the spec file with the refined requirements
+2. Ensure `./ai-docs/` directory exists: `mkdir -p ./ai-docs`
+3. Write the refined spec to `./ai-docs/spec.md`
+4. Report completion with the output file path
