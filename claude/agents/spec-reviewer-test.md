@@ -1,5 +1,5 @@
 ---
-name: spec-reviewer-test-architect
+name: spec-reviewer-test
 description: Review spec for testability concerns using Codex
 tools: Read, mcp__codex__codex
 ---

@@ -115,7 +115,7 @@ Task tool parameters:
 #### Reviewer 3: Testability (Software in Test Architect)
 ```
 Task tool parameters:
-  subagent_type: spec-reviewer-test-architect
+  subagent_type: spec-reviewer-test
   prompt: Review the spec file at: $ARGUMENTS
   description: Testability review
 ```
