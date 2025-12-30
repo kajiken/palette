@@ -28,7 +28,21 @@ Implement a GitHub Issue using strict test-first TDD, automated code review, and
 
 ## Workflow
 
-### 1) Verify gh Authentication
+### 1) Prepare Local Repository
+
+Ensure working on latest main branch before starting:
+
+```bash
+# Switch to main branch
+git checkout main
+
+# Pull latest changes from remote
+git pull origin main
+```
+
+If there are uncommitted changes, ask user how to proceed (stash, commit, or discard).
+
+### 2) Verify gh Authentication
 
 ```bash
 gh auth status
@@ -36,7 +50,7 @@ gh auth status
 
 If not authenticated, ask user to run `gh auth login`.
 
-### 2) Fetch Issue
+### 3) Fetch Issue
 
 ```bash
 gh issue view "https://github.com/owner/repo/issues/123"
@@ -49,7 +63,7 @@ Parse issue content using patterns in `references/issue-parsing.md`:
 - Identify technical details and constraints
 - Note ambiguities - ask user for clarification
 
-### 3) Read Repository Guidelines
+### 4) Read Repository Guidelines
 
 Check and read if present:
 - `CLAUDE.md` - AI development guidelines
@@ -59,7 +73,7 @@ Check and read if present:
 
 Extract coding standards, test patterns, commit conventions.
 
-### 4) Create Implementation Plan
+### 5) Create Implementation Plan
 
 Present plan to user for approval:
 
@@ -88,7 +102,7 @@ Work through one at a time using RED-GREEN-REFACTOR:
 Proceed with this plan? [Y/N]
 ```
 
-### 4.5) Verify Test Framework
+### 6) Verify Test Framework
 
 Detect test runner from project configuration:
 
@@ -111,7 +125,7 @@ Detect test runner from project configuration:
 3. Help set up minimal test configuration if needed
 4. Do not proceed until tests can be run
 
-### 5) TDD Implementation Cycle
+### 7) TDD Implementation Cycle
 
 Follow strict TDD from `references/tdd-workflow.md`:
 
@@ -154,7 +168,7 @@ Rules:
 
 Repeat for all tests in Test List.
 
-### 6) Code Review Loop
+### 8) Code Review Loop
 
 Run code review:
 
@@ -168,7 +182,7 @@ Handle feedback per `references/review-criteria.md`:
 
 Repeat until review passes (max 5 iterations).
 
-### 7) Commit Strategy
+### 9) Commit Strategy
 
 **Strictly separate tidying commits from behavior change commits:**
 
@@ -188,7 +202,7 @@ Why separate?
 - Easier to revert if issues arise
 - Speeds up code review process
 
-### 8) Create PR
+### 10) Create PR
 
 After all tests pass and review passes:
 
