@@ -11,10 +11,10 @@ Save the current session's work to a handoff file for the next session.
 
 ### Step 1: Prepare Directory
 
-Ensure `./docs/handoffs/` directory exists:
+Ensure `./ai-docs/handoffs/` directory exists:
 
 ```bash
-mkdir -p ./docs/handoffs
+mkdir -p ./ai-docs/handoffs
 ```
 
 ### Step 2: Analyze Session
@@ -44,7 +44,7 @@ If user selects "Edit filename", ask for the new filename and confirm again.
 
 ### Step 5: Save File
 
-Write the handoff file to `./docs/handoffs/{filename}.md` using this format:
+Write the handoff file to `./ai-docs/handoffs/{filename}.md` using this format:
 
 ```markdown
 # Session Handoff: {Title}
