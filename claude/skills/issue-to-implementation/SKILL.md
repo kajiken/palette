@@ -1,6 +1,6 @@
 ---
 name: issue-to-implementation
-description: Implement GitHub Issue using strict TDD (test-first), code review, and PR creation. Use when given a GitHub Issue URL, when user says "implement issue", "fix issue #123", or when starting feature/bug work from GitHub. Follows Kent Beck's RED-GREEN-REFACTOR cycle with Test List, Fake It, and Triangulation strategies. Applies Tidyings from "Tidy First?" during REFACTOR phase. Strictly separates tidying commits from behavior changes. Reads repository guidelines, creates failing tests first, implements minimal code to pass, reviews with /code-review, and creates PR with /commit-push-pr.
+description: Implements GitHub Issues using TDD and creates PRs. Use when user provides a GitHub Issue URL, says "implement issue #123", "fix issue", or wants to start feature/bug work from GitHub Issues. Runs tests first, reviews code, and opens PR automatically.
 metadata:
   short-description: Implement GitHub Issue with TDD and create PR
 ---
