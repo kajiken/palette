@@ -1,6 +1,6 @@
 ---
 name: issue-discovery
-description: Records discovered problems as issue files. Use proactively when: (1) encountering errors during command execution, (2) finding bugs or security concerns, (3) discovering technical debt or deprecated APIs, (4) noticing performance issues or documentation gaps. Do NOT wait for user request - record issues immediately when problems are detected.
+description: "Records discovered problems as issue files. Use proactively when: (1) encountering errors during command execution, (2) finding bugs or security concerns, (3) discovering technical debt or deprecated APIs, (4) noticing performance issues or documentation gaps. Do NOT wait for user request - record issues immediately when problems are detected."
 ---
 
 # Issue Discovery
