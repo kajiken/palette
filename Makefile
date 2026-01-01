@@ -2,12 +2,8 @@ all: sync
 
 sync:
 	mkdir -p ~/.config/ghostty
-	mkdir -p ~/.claude
 	mkdir -p ~/.hammerspoon
 
-	[ -d ~/.claude/commands/ ] || ln -s $(PWD)/claude/commands ~/.claude/commands
-	[ -d ~/.claude/agents/ ] || ln -s $(PWD)/claude/agents ~/.claude/agents
-	[ -d ~/.claude/skills/ ] || ln -s $(PWD)/claude/skills ~/.claude/skills
 	[ -f ~/.config/starship.toml ] || ln -s $(PWD)/starship.toml ~/.config/starship.toml
 	[ -f ~/.config/ghostty/config ] || ln -s $(PWD)/ghostty/config ~/.config/ghostty/config
 	[ -f ~/.gitconfig ] || ln -s $(PWD)/gitconfig ~/.gitconfig
@@ -28,9 +24,6 @@ clean:
 	rm -f ~/.zprofile
 	rm -f ~/.zshenv
 	rm -f ~/.zshrc
-	rm -rf ~/.claude/commands/
-	rm -rf ~/.claude/agents/
-	rm -rf ~/.claude/skills/
 
 vim-plugin:
 	[ -f ~/.vim/autoload/plug.vim ] || curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
