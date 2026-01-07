@@ -21,8 +21,6 @@ setopt rm_star_silent
 setopt prompt_subst
 
 # autoload
-autoload -U compinit
-compinit
 autoload -Uz colors
 colors
 

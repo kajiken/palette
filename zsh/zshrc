@@ -3,27 +3,37 @@
 # ====================
 
 if type brew &>/dev/null; then
-  FPATH=$(brew --prefix)/share/zsh-completions:$FPATH
+  HOMEBREW_PREFIX=$(brew --prefix)
+  FPATH=$HOMEBREW_PREFIX/share/zsh-completions:$FPATH
 
-  source $(brew --prefix)/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-  source $(brew --prefix)/share/zsh-autosuggestions/zsh-autosuggestions.zsh
+  source $HOMEBREW_PREFIX/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+  source $HOMEBREW_PREFIX/share/zsh-autosuggestions/zsh-autosuggestions.zsh
 
-  export GHQPATH=$(brew --prefix)/bin/ghq
+  export GHQPATH=$HOMEBREW_PREFIX/bin/ghq
 fi
 
 export DOTFILES_REPOS='kajiken/palette'
-export ZSH=`$GHQPATH root`/`$GHQPATH list $DOTFILES_REPOS`/zsh
-export XDG_CONFIG_HOME=`$GHQPATH root`/`$GHQPATH list $DOTFILES_REPOS`
+_ghq_root=$($GHQPATH root)
+_dotfiles_path=$_ghq_root/$($GHQPATH list $DOTFILES_REPOS)
+export ZSH=$_dotfiles_path/zsh
+export XDG_CONFIG_HOME=$_dotfiles_path
+unset _ghq_root _dotfiles_path
 
 source $ZSH/aliases.zsh
 source $ZSH/keybind.zsh
 source $ZSH/options.zsh
 source $ZSH/lib/peco.zsh
-source $ZSH/lib/rbenv.zsh
-source $ZSH/lib/nvm.zsh
-source $ZSH/lib/devtree.zsh
 
 autoload -Uz compinit
-compinit
+_zcompdump="${XDG_CACHE_HOME:-${HOME}/.cache}/zsh/.zcompdump-${HOST}-${ZSH_VERSION}"
+mkdir -p "${_zcompdump:h}"
+
+setopt extendedglob
+if [[ -n "${_zcompdump}"(#qN.mh+24) ]]; then
+  compinit -d "${_zcompdump}"
+else
+  compinit -C -d "${_zcompdump}"
+fi
 
 eval "$(starship init zsh)"
+eval "$(mise activate zsh)"
