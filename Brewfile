@@ -18,7 +18,6 @@ brew "vim"
 brew "zsh"
 
 # Applications
-cask "claude-code"
 cask "codex"
 cask "appcleaner"
 cask "figma"
