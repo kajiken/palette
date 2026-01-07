@@ -16,8 +16,8 @@ export DOTFILES_REPOS='kajiken/palette'
 _ghq_root=$($GHQPATH root)
 _dotfiles_path=$_ghq_root/$($GHQPATH list $DOTFILES_REPOS)
 export ZSH=$_dotfiles_path/zsh
-export XDG_CONFIG_HOME=$_dotfiles_path
 unset _ghq_root _dotfiles_path
+export XDG_CONFIG_HOME=$HOME/.config
 
 source $ZSH/aliases.zsh
 source $ZSH/keybind.zsh
