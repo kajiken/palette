@@ -1,0 +1,30 @@
+shell = "zsh"
+
+[templates]
+defer = '{% for file in files %}zsh-defer source "{{ file }}"{% endfor %}'
+
+[plugins.zsh-defer]
+github = "romkatv/zsh-defer"
+
+[plugins.compinit]
+inline = 'autoload -Uz compinit && zsh-defer compinit -C -d "${XDG_CACHE_HOME:-${HOME}/.cache}/zsh/.zcompdump-${HOST}-${ZSH_VERSION}"'
+
+[plugins.colors]
+inline = 'autoload -Uz colors && zsh-defer colors'
+
+[plugins.zsh-autosuggestions]
+github = "zsh-users/zsh-autosuggestions"
+apply = ["defer"]
+
+[plugins.zsh-completions]
+github = "zsh-users/zsh-completions"
+apply = ["fpath"]
+
+[plugins.zsh-syntax-highlighting]
+github = "zsh-users/zsh-syntax-highlighting"
+apply = ["defer"]
+
+[plugins.dotfiles-defer]
+local = '~/.config/zsh/defer'
+use = ['*.zsh']
+apply = ['defer']

@@ -4,10 +4,14 @@
 
 if type brew &>/dev/null; then
   HOMEBREW_PREFIX=$(brew --prefix)
-  FPATH=$HOMEBREW_PREFIX/share/zsh-completions:$FPATH
 
-  source $HOMEBREW_PREFIX/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-  source $HOMEBREW_PREFIX/share/zsh-autosuggestions/zsh-autosuggestions.zsh
+  # Configure sheldon to use ~/.sheldon directory
+  export SHELDON_CONFIG_DIR="$HOME/.sheldon"
+  export SHELDON_DATA_DIR="$HOME/.sheldon"
+
+  # Load all plugins via sheldon (zsh-defer, autosuggestions, completions, syntax-highlighting)
+  # Syntax highlighting is automatically deferred via custom template in plugins.toml
+  eval "$(sheldon source)"
 
   export GHQPATH=$HOMEBREW_PREFIX/bin/ghq
 fi
@@ -22,18 +26,11 @@ export XDG_CONFIG_HOME=$HOME/.config
 source $ZSH/aliases.zsh
 source $ZSH/keybind.zsh
 source $ZSH/options.zsh
-source $ZSH/lib/peco.zsh
 
-autoload -Uz compinit
-_zcompdump="${XDG_CACHE_HOME:-${HOME}/.cache}/zsh/.zcompdump-${HOST}-${ZSH_VERSION}"
-mkdir -p "${_zcompdump:h}"
+# Ensure cache directory exists for compinit
+mkdir -p "${XDG_CACHE_HOME:-${HOME}/.cache}/zsh"
 
-setopt extendedglob
-if [[ -n "${_zcompdump}"(#qN.mh+24) ]]; then
-  compinit -d "${_zcompdump}"
-else
-  compinit -C -d "${_zcompdump}"
-fi
+# Note: peco.zsh is now loaded via sheldon from zsh/defer/ directory
 
 eval "$(starship init zsh)"
 eval "$(mise activate zsh)"

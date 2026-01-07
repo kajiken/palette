@@ -4,6 +4,7 @@ sync:
 	mkdir -p ~/.config/ghostty
 	mkdir -p ~/.hammerspoon
 	mkdir -p ~/.sheldon
+	mkdir -p ~/.config/zsh/defer
 
 	[ -f ~/.config/starship.toml ] || ln -s $(PWD)/starship.toml ~/.config/starship.toml
 	[ -f ~/.config/ghostty/config ] || ln -s $(PWD)/ghostty/config ~/.config/ghostty/config
@@ -15,6 +16,7 @@ sync:
 	[ -f ~/.zshenv ] || ln -s $(PWD)/zsh/zshenv ~/.zshenv
 	[ -f ~/.zshrc ] || ln -s $(PWD)/zsh/zshrc ~/.zshrc
 	[ -f ~/.sheldon/plugins.toml ] || ln -s $(PWD)/zsh/plugins.toml ~/.sheldon/plugins.toml
+	[ -f ~/.config/zsh/defer/peco.zsh ] || ln -s $(PWD)/zsh/defer/peco.zsh ~/.config/zsh/defer/peco.zsh
 
 clean:
 	rm -f ~/.config/starship.toml
@@ -27,6 +29,7 @@ clean:
 	rm -f ~/.zshenv
 	rm -f ~/.zshrc
 	rm -f ~/.sheldon/plugins.toml
+	rm -f ~/.config/zsh/defer/peco.zsh
 
 vim-plugin:
 	[ -f ~/.vim/autoload/plug.vim ] || curl -fLo ~/.vim/autoload/plug.vim --create-dirs \

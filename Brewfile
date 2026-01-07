@@ -16,9 +16,6 @@ brew "starship"
 brew "tree"
 brew "vim"
 brew "zsh"
-brew "zsh-autosuggestions"
-brew "zsh-completions"
-brew "zsh-syntax-highlighting"
 
 # Applications
 cask "claude-code"
