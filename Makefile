@@ -2,14 +2,12 @@ all: sync
 
 sync:
 	mkdir -p ~/.config/ghostty
-	mkdir -p ~/.hammerspoon
 	mkdir -p ~/.sheldon
 	mkdir -p ~/.config/zsh/defer
 
 	[ -f ~/.config/starship.toml ] || ln -s $(PWD)/starship.toml ~/.config/starship.toml
 	[ -f ~/.config/ghostty/config ] || ln -s $(PWD)/ghostty/config ~/.config/ghostty/config
 	[ -f ~/.gitconfig ] || ln -s $(PWD)/gitconfig ~/.gitconfig
-	[ -f ~/.hammerspoon/init.lua ] || ln -s $(PWD)/hammerspoon/init.lua ~/.hammerspoon/init.lua
 	[ -f ~/.vimrc ] || ln -s $(PWD)/vimrc ~/.vimrc
 	[ -f ~/.tmux.conf ] || ln -s $(PWD)/tmux/tmux.conf ~/.tmux.conf
 	[ -f ~/.zprofile ] || ln -s $(PWD)/zsh/zprofile ~/.zprofile
@@ -22,7 +20,6 @@ clean:
 	rm -f ~/.config/starship.toml
 	rm -f ~/.config/ghostty/config
 	rm -f ~/.gitconfig
-	rm -f ~/.hammerspoon/init.lua
 	rm -f ~/.vimrc
 	rm -f ~/.tmux.conf
 	rm -f ~/.zprofile
