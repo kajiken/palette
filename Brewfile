@@ -17,14 +17,7 @@ brew "zsh"
 # Applications
 cask "codex"
 cask "gcloud-cli"
-cask "ghostty@tip"
-cask "github"
-cask "hammerspoon"
-cask "iterm2"
-cask "orbstack"
-cask "karabiner-elements"
-cask "notion"
-cask "visual-studio-code"
+cask "ghostty"
 
 # Fonts
 cask "font-jetbrains-mono"
